@@ -60,6 +60,16 @@ public class WelcomeController {
         return "customerajax"; //view
     }
 
+    @GetMapping("/ajax")
+    public String AjaxHome( Model model) {
+        return "Ajax"; //view
+    }
+
+    @GetMapping("/form")
+    public String FormHome( Model model) {
+        return "Form"; //view
+    }
+
     @GetMapping("/example")
     public String exampleHome( Model model) {
         return "blank"; //view

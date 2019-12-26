@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CoreUI Free Bootstrap Admin Template</title>
+    <!-- Icons-->
+
+    <!-- Main styles for this application-->
+     <link href="css/style1.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+<!--    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>-->
+      <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      // Shared ID
+      gtag('config', 'UA-118965717-3');
+      // Bootstrap ID
+      gtag('config', 'UA-118965717-5');
+    </script>
+  </head>
+  <body class="app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <h1>个人信息</h1>
+              <!--<p class="text-muted">Create your account</p>-->
+                <form action="" method="post">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">姓名</span>
+                </div>
+                <input class="form-control" type="text" placeholder="请输入姓名" name="studentName">
+              </div>
+                    
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">学号</span>
+                </div>
+                <input class="form-control" type="text" placeholder="请输入学号" name="id">
+              </div>
+                </form>
+<!--              <div class="input-group mb-3">-->
+<!--                <div class="input-group-prepend">-->
+<!--                  <span class="input-group-text">地址</span>-->
+<!--                </div>-->
+<!--                <input class="form-control" type="text" placeholder="请输入地址">-->
+<!--              </div>-->
+<!--			  <div class="input-group mb-4">-->
+<!--			    <div class="input-group-prepend">-->
+<!--			      <span class="input-group-text">联系电话</span>-->
+<!--			    </div>-->
+<!--			    <input class="form-control" type="text" placeholder="请输入联系电话">-->
+<!--			  </div>-->
+<!--			  <div class="input-group mb-4">-->
+<!--				<div class="input-group-prepend">-->
+<!--				  <span class="input-group-text">介绍</span>-->
+<!--				</div>-->
+<!--			  <div class="col-md-9">-->
+<!--			  <textarea class="form-control" id="textarea-input" name="textarea-input" rows="9" placeholder="请输入自我介绍"></textarea>-->
+<!--			  </div>-->
+<!--			  </div>-->
+
+              <button class="btn btn-block btn-success" type="button" onclick="post()">提交</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function post() {
+
+
+            var newCust = {};
+            var t = $('form').serializeArray();
+            console.log(t)
+            $.each(t, function () {
+                newCust[this.name] = this.value;
+            });
+            console.log(newCust)
+
+            $.ajax({
+                url:"/student/add",
+                type:"post",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(newCust),
+                datatype:'json',
+                success:function(res){
+                    console.log(res)
+
+                }
+            })
+        }
+
+
+    </script>
+  
+  </body>
+</html>

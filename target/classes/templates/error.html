@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>出错了</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<h1>出错了!</h1>
+<b>[<span th:text="${status}">状态</span>]
+    <span th:text="${error}">错误</span>
+</b>
+<p th:text="${message}">消息</p>
+</body>
+</html>
